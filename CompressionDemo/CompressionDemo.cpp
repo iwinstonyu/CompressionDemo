@@ -117,6 +117,9 @@ void TestProtoMsg() {
 		string strCompress;
 		snappy::Compress(msg.szMsg, msg.len, &strCompress);
 
+		string strCopy = strCompress;
+		string strCopy1 = strCompress.c_str();
+
 		string strUnCompress;
 		snappy::Uncompress(strCompress.c_str(), strCompress.length(), &strUnCompress);
 
@@ -182,13 +185,13 @@ int main()
 	// 	std::string str("Test \0string");
 	// 	std::cout << str.length() << endl;
 
-	/*	TestProtoMsg();*/
+	TestProtoMsg();
 
 	//TestZX();
 
 	//TestLZ4ProtoMsg();
 
-	TestLZ4ZX();
+	//TestLZ4ZX();
 
 	system("pause");
 	return 0;
